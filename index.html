@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <link rel="stylesheet" href="index.css">
+    
+  </head>
+  <body>
+      <div id="app">
+    <h1>Doggo Finder</h1>
+    <input id="search" type="text" value="Enter a dog breed to search" v-model="breed">
+    <button type="submit" @click="search">Fetch!</button>
+    <select id="lim" v-model="limit">
+        <option value="">1</option>
+        <option value="/5">5</option>
+        <option value="/10">10</option>
+    </select>
+
+    <img v-for="m in result.message" v-bind:src="m">
+</div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+  <script src="index.js"></script>
+</html>
