@@ -11,7 +11,7 @@ var config = {
 
 
 const app = new Vue({
-	el: '#app',
+	el: '#app', 
 	data: {
         limit: "/5",
         breed: "malamute",
