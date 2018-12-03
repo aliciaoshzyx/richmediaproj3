@@ -3,28 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>title</title>
+    <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
       <div id="app">
-          <header>
+          <div class="box" id="search">
               <h1>Doggo Finder</h1>
-          </header>
-        <div id="search">
-            <input id="searchTerm" type="text" value="Enter a dog breed to search" v-model="breed">
-            <select id="lim" v-model="limit">
-                <option value="">1</option>
-                <option value="/5">5</option>
-                <option value="/10">10</option>
-            </select>
-            <button type="submit" @click="search">Fetch!</button>
-        </div>
-        <div id="results">
-            <div contents>
-                <img v-for="m in result.message" v-bind:src="m">
+              <div id="searchBox">
+                <input id="searchTerm" type="text" value="Enter a dog breed to search" v-model="breed">
+                <select id="lim" v-model="limit">
+                    <option value="/5">5</option>
+                    <option value="/10">10</option>
+                    <option value="/15">15</option>
+                </select>
+                <button type="submit" @click="search">Fetch!</button>
             </div>
-        </div>
+          </div>
+          <div class="box" id="results">
+              <img v-for="m in result.message" v-bind:src="m">
+          </div>
       </div>
+      <p ><a href="https://www.petfinder.com">Powered by Petfinder.com</a></p>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
