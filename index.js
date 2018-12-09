@@ -8,9 +8,9 @@ var config = {
     messagingSenderId: "886497343959"
   };
   firebase.initializeApp(config);
-$(document).ready(function() {
-    $('.specialSelect').select2();
-});
+// $(document).ready(function() {
+//     $('.specialSelect').select2();
+// });
 function jsonLoaded(obj){
     //console.log("obj stringified = " + JSON.stringify(obj.petfinder.pets.pet));
     this.shelter = obj.petfinder.pets.pet;
@@ -71,6 +71,7 @@ const app = new Vue({
 	methods:{
 	search(){
 		//if (! this.term.trim()) return;
+		console.log(this.searchBreed.first);
 		let url = "https://dog.ceo/api/breed/" + this.searchBreed.first + "/images/random" + this.limit;
 		//url += this.limit;
 		fetch(url)

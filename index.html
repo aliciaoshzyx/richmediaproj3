@@ -15,7 +15,7 @@
               <h1>Doggo Finder</h1>
               <div id="searchBox">
                 <select class="specialSelect"  v-model="searchBreed">
-                    <option v-for="b in breeds" v-bind="b">{{b.second}}</option>
+                    <option v-for="b in breeds" v-bind:value="b">{{b.second}}</option>
                 </select>
                 
                 <select id="lim" v-model="limit">
