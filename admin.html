@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Firebase Admin</title>
+</head>
+<body>
+<h1>Dog Searches</h1>
+<ul id="dogsList"><li>No data yet!</li></ul>
+
+<!-- #1 - link to Firebase goes here  -->
+<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+<script>
+  /* #2 - The rest of the Firebase setup code goes here */
+  var config = {
+    apiKey: "AIzaSyBOf-2qnc9htrCajBfZGm4_QTpbzf6I3DE",
+    authDomain: "rmproject3.firebaseapp.com",
+    databaseURL: "https://rmproject3.firebaseio.com",
+    projectId: "rmproject3",
+    storageBucket: "",
+    messagingSenderId: "886497343959"
+  };
+  firebase.initializeApp(config);
+  console.log(firebase); // #3 - make sure firebase is loaded
+	
+  // #4 This is where the magic happens!
+  firebase.database().ref("searches").on("value", dataChanged, firebaseError);
+	
+  function dataChanged(data){
+    let obj = data.val();
+    console.log(obj);
+    let bigString="";
+    for (let key in obj){   // use for..in to interate through object keys
+      let row = obj[key];
+      bigString += `<li>${row}</li>`;
+      console.log(row);
+    }	
+    dogsList.innerHTML = bigString;
+  }
+	
+  function firebaseError(error){
+    console.log(error);
+  }
+	
+</script>
+</body>
+</html>

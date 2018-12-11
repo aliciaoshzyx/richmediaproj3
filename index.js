@@ -16,11 +16,12 @@ function jsonLoaded(obj){
     this.shelter = obj.petfinder.pets.pet;
 }; 
 
+
 const app = new Vue({
 	el: '#app', 
 	data: {
         limit: "/5",
-        location: "80020",
+        location: "",
         sex: "M",
         age:"Young",
         searchBreed: {first:"beagle", second : "Beagle"},
@@ -109,3 +110,25 @@ const app = new Vue({
 	} // end methods
     
 });
+
+/**********************
+Web Storage
+**********************/
+const zipField = document.querySelector("#loc");
+const prefix = "boi-"; 
+const zipKey = prefix + "zip";
+
+// grab the stored data, will return `null` if the user has never been to this page
+const storedZip = localStorage.getItem(zipKey);
+
+// if we find a previously set name value, display it
+if (storedZip){
+	zipField.value = storedZip;
+}else{
+	zipField.value = "14623"; // a default value if `nameField` is not found
+}
+
+/* This stuff happens later when the user does something */
+// when the user changes their favorites, update localStorage
+zipField.onchange = e=>{ localStorage.setItem(zipKey, e.target.value); };
+
