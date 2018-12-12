@@ -35,7 +35,12 @@
                         <option value="Senior">Senior</option>
                     </select>
                 <input id="loc" type="text" v-model="location">
-                
+                <select id="lim2" v-model="limit2">
+                    <option selected value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
                 <button type="submit" @click="getData">Fetch!</button>
             </div>
           </div>
@@ -45,11 +50,11 @@
           <div id="shelters" >
               <div v-for="p in shelter">
                   <p>{{p.name.$t}}</p>
-                  <!-- <img v-bind:src="p.media.photos.photo[0].$t"> -->
+                  <img v-bind:src="p.media.photos.photo[0].$t">
                  <p>{{p.contact.phone.$t}}</p>
                   <p>{{p.contact.email.$t}}</p>
                   <p>{{p.contact.address1.$t}}</p>
-                  <p>{{p.mix.$t}}</p> 
+                  <p>{{p.mix.$t}}</p>
 
               </div>
           </div>

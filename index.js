@@ -21,6 +21,7 @@ var app = new Vue({
 	el: '#app', 
 	data: {
         limit: "/5",
+        limit2:"5",
         location: "80020",
         sex: "M",
         age:"Young",
@@ -90,7 +91,8 @@ var app = new Vue({
 		})
        } ,// end search
     getData(){
-        let url = "https://api.petfinder.com/pet.find?key=68c80bc6414ec08cb86f3f8fc5195a0e&count=1&breed=" 
+        let url = "https://api.petfinder.com/pet.find?key=68c80bc6414ec08cb86f3f8fc5195a0e&count=" + 
+        this.limit2 +"&breed=" 
         + this.searchBreed.second + "&sex=" + this.sex + "&location=" + this.location +  
         "&age=" + this.age + "&format=json";
 		console.log("loading " + url);
