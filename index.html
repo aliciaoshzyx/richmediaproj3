@@ -44,13 +44,12 @@
           </div>
           <div id="shelters" >
               <div v-for="p in shelter">
-                  <img v-bind:src="p.media.photos.photo[0].$t">
                   <p>{{p.name.$t}}</p>
-                  <p>{{p.contact.phone.$t}}</p>
+                  <!-- <img v-bind:src="p.media.photos.photo[0].$t"> -->
+                 <p>{{p.contact.phone.$t}}</p>
                   <p>{{p.contact.email.$t}}</p>
                   <p>{{p.contact.address1.$t}}</p>
-                  <p>{{p.contact.city}}{{p.state.$t}}{{p.contact.zip.$t}}</p>
-                  <p>{{p.mix.$t}}</p>
+                  <p>{{p.mix.$t}}</p> 
 
               </div>
           </div>

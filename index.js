@@ -12,16 +12,16 @@ var config = {
 //     $('.specialSelect').select2();
 // });
 function jsonLoaded(obj){
-    //console.log("obj stringified = " + JSON.stringify(obj.petfinder.pets.pet));
-    this.shelter = obj.petfinder.pets.pet;
+    console.log("obj stringified = " + JSON.stringify(obj.petfinder.pets.pet));
+    this.shelter = obj.petfinder.pets.pet; debugger;
 }; 
 
 
-const app = new Vue({
+var app = new Vue({
 	el: '#app', 
 	data: {
         limit: "/5",
-        location: "",
+        location: "80020",
         sex: "M",
         age:"Young",
         searchBreed: {first:"beagle", second : "Beagle"},
@@ -90,7 +90,7 @@ const app = new Vue({
 		})
        } ,// end search
     getData(){
-        let url = "https://api.petfinder.com/pet.find?key=68c80bc6414ec08cb86f3f8fc5195a0e&breed=" 
+        let url = "https://api.petfinder.com/pet.find?key=68c80bc6414ec08cb86f3f8fc5195a0e&count=1&breed=" 
         + this.searchBreed.second + "&sex=" + this.sex + "&location=" + this.location +  
         "&age=" + this.age + "&format=json";
 		console.log("loading " + url);
@@ -100,7 +100,10 @@ const app = new Vue({
 		  dataType: "jsonp",
 		  url: url,
 		  data: null,
-		  success: jsonLoaded
+		  success: function jsonLoaded(obj){
+            console.log("obj stringified = " + JSON.stringify(obj.petfinder.pets.pet));
+            this.shelter = obj.petfinder.pets.pet;
+        }.bind(app)
 		});
 
 	
