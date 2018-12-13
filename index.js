@@ -8,13 +8,6 @@ var config = {
     messagingSenderId: "886497343959"
   };
   firebase.initializeApp(config);
-// $(document).ready(function() {
-//     $('.specialSelect').select2();
-// });
-function jsonLoaded(obj){
-    console.log("obj stringified = " + JSON.stringify(obj.petfinder.pets.pet));
-    this.shelter = obj.petfinder.pets.pet; debugger;
-}; 
 
 
 var app = new Vue({
@@ -67,7 +60,9 @@ var app = new Vue({
         ]
 	},
     created(){
-        this.search()
+        this.search();
+        this.getData(); //this is getting called but the info isnt showing up,
+                        //checked with console logs
     },
   
 	methods:{
@@ -84,7 +79,6 @@ var app = new Vue({
 			return response.json();
 		})
 		.then(json => {	
-			console.log(json);
             
             this.result = json;
             firebase.database().ref('searches').push(this.searchBreed.first);
@@ -95,7 +89,6 @@ var app = new Vue({
         this.limit2 +"&breed=" 
         + this.searchBreed.second + "&sex=" + this.sex + "&location=" + this.location +  
         "&age=" + this.age + "&format=json";
-		console.log("loading " + url);
 		
 		// use jQuery
 	    $.ajax({
@@ -103,7 +96,7 @@ var app = new Vue({
 		  url: url,
 		  data: null,
 		  success: function jsonLoaded(obj){
-            console.log("obj stringified = " + JSON.stringify(obj.petfinder.pets.pet));
+            //console.log("obj stringified = " + JSON.stringify(obj.petfinder.pets.pet));
             this.shelter = obj.petfinder.pets.pet;
         }.bind(app)
 		});

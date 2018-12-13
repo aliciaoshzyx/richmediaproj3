@@ -75,13 +75,14 @@
     height: 950px;
     background: whitesmoke;
     text-align: center;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     white-space: nowrap;
 }
 
 #info{
-    display: inline-block;
+    display: flex;
+    flex-direction:column;
     height: 500px;
     width: 400px;
     padding: 15px;
