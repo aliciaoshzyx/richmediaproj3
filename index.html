@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>title</title>
+    <title>Doggo Finder!</title>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
@@ -12,28 +12,34 @@
   <body>
       <div id="app">
           <div class="box" id="search">
-              <h1>Doggo Finder</h1>
+              <h1 id="title">Doggo Finder</h1>
+              <p id="subTxt">"woof...woof!"</p>
               <div id="searchBox">
+                  <h1 class="titles">1. Search Random Doggos!</h1>
+                  <p class="selections">Breed: </p>
                 <select class="specialSelect"  v-model="searchBreed">
                     <option v-for="b in breeds" v-bind:value="b">{{b.second}}</option>
                 </select>
-                
                 <select id="lim" v-model="limit">
                     <option value="/5">5</option>
                     <option value="/10">10</option>
                     <option value="/15">15</option>
                 </select>
-                <button type="submit" @click="search">Fetch!</button>
+                <button id="dogPics" type="submit" onclick="toggle_pics('#shelters');" @click="search">Fetch!</button>
+                <h1 class="titles">2. Adopt A Doggo!</h1>
+                <p class="selections">Sex: </p>
                 <select id="sex" v-model="sex">
                     <option value="M">M</option>
                     <option value="F">F</option>
                 </select>
+                  <p class="selections">Age: </p>
                 <select id="age" v-model="age">
                         <option value="Baby">Baby</option>
                         <option selected value="Young">Young</option>
                         <option value="Adult">Adult</option>
                         <option value="Senior">Senior</option>
                     </select>
+                <p class="selections">Zip Code: </p>
                 <input id="loc" type="text" v-model="location">
                 <select id="lim2" v-model="limit2">
                     <option selected value="1">1</option>
@@ -41,29 +47,37 @@
                     <option value="10">10</option>
                     <option value="15">15</option>
                 </select>
-                <button type="submit" @click="getData">Fetch!</button>
+                <button id="shelter" type="submit" @click="getData">Fetch!</button>
             </div>
           </div>
           <div class="box" id="results">
               <img v-for="m in result.message" v-bind:src="m">
           </div>
-          <div id="shelters" >
-              <div v-for="p in shelter">
-                  <p>{{p.name.$t}}</p>
-                  <img v-bind:src="p.media.photos.photo[0].$t">
-                 <p>{{p.contact.phone.$t}}</p>
-                  <p>{{p.contact.email.$t}}</p>
-                  <p>{{p.contact.address1.$t}}</p>
-                  <p>{{p.contact.city.$t}} , {{p.contact.state.$t}} {{p.contact.zip.$t}}</p>
-                  <p>{{p.mix.$t}}</p>
-
+          <div id="shelters">
+              <div v-for="p in shelter" id="info">
+                  <img class="preview" v-bind:src="p.media.photos.photo[0].$t">
+                      <p id="dogName">{{p.name.$t}}</p>
+                  <div id="details">
+                      <p id="contact">Contact Information</p>
+                      <p>Phone: {{p.contact.phone.$t}}</p>
+                      <p>Email: {{p.contact.email.$t}}</p>
+                      <p>Address: {{p.contact.address1.$t}}</p>
+                      <p>{{p.contact.city.$t}}, {{p.contact.state.$t}}-{{p.contact.zip.$t}}</p>
+                      <p>Mixed Breed: {{p.mix.$t}}</p>
+                  </div>
               </div>
           </div>
       </div>
       <p ><a href="https://www.petfinder.com">Powered by Petfinder.com</a></p>
   </body>
-  <script>
-
+<script type="text/javascript">
+    function toggle_pics(id){
+        let e = document.getElementById(id);
+        if(e.style.display == 'block')
+            e.style.display == 'none';
+        else
+            e.style.display = 'block';
+    }
 </script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>

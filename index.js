@@ -22,7 +22,7 @@ var app = new Vue({
 	data: {
         limit: "/5",
         limit2:"5",
-        location: "80020",
+        location: "14623",
         sex: "M",
         age:"Young",
         searchBreed: {first:"beagle", second : "Beagle"},
@@ -66,9 +66,9 @@ var app = new Vue({
 
         ]
 	},
-    //created(){
-    //    this.search()
-    //},
+    created(){
+        this.search()
+    },
   
 	methods:{
 	search(){
@@ -107,11 +107,7 @@ var app = new Vue({
             this.shelter = obj.petfinder.pets.pet;
         }.bind(app)
 		});
-
-	
     },
-    
-	
 	} // end methods
     
 });

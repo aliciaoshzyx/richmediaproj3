@@ -1,24 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
 #app{
-    margin: 0 auto;
-    width: 100%;
     display: flex;
 }
 
 .box{
     margin-left: 0%;
     width: 1000px;
-    background: black;
-    
 }
 
 #search{
-    width: 25%;
+    flex: 25%;
+    padding: 10px;
     height: 950px;
+    background-color: black;
 }
 
-h1{
+#title{
     margin: 0 auto;
     margin-top: 10px;
+    margin-bottom: 0px;
     text-align: center;
     color: white;
     font-size: 100px;
@@ -26,23 +29,99 @@ h1{
     font-family: 'Text Me One', sans-serif;
 }
 
+#subTxt{
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Text Me One', sans-serif;
+}
 #searchBox{
     margin: 0 auto;
     margin-top: 10px;
-    text-align: center;
+    text-align: left;
     padding: 15px;
-    width: 300px;
+    width: 250px;
     font-family: 'verdana', sans-serif;
 }
 
+.titles{
+    font-size: 25px;
+    color: white;
+    font-family: 'Text Me One', sans-serif;
+}
+
+.selections{
+    text-align: left;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 0px;
+    color: white;
+    font-family: 'Text Me One', sans-serif;
+}
+
 #results{
-    margin-left: 1%;
+    flex: 75%;
     padding: 10px;
-    width: 75%;
-    height: 928px;
+    height: 950px;
     background: whitesmoke;
     text-align: center;
     overflow: scroll;
+}
+
+#shelters{
+    flex: 75%;
+    padding: 10px;
+    height: 950px;
+    background: whitesmoke;
+    text-align: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+#info{
+    display: inline-block;
+    height: 500px;
+    width: 400px;
+    padding: 15px;
+    margin-top: 200px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#details{
+    font-size: 12px;
+    padding: 5px;
+    margin-top: 5%;
+    border-bottom: solid;
+    border-width: 1px;
+    background-color: white;
+    font-family: 'verdana', sans-serif;
+}
+
+#dogName{
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 0px;
+    font-family: 'Text Me One', sans-serif;
+}
+
+#contact{
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.preview{
+    margin: 0 auto;
+    width: auto;
+    border-top: solid;
+    border-bottom: solid;
+    padding: 5px;
+    border-radius: 15px;
+    border-width: 1px;
 }
 
 img{
@@ -52,7 +131,7 @@ img{
 }
 
 button{
-    margin: 5px;
+    margin: 15px;
     display: inline-block;
     cursor: pointer;
 
@@ -60,7 +139,7 @@ button{
     border-style: solid;
     border-width: 5px;
     border-radius: 5px;
-    padding: 10px 18px;
+    padding: 15px 58px;
     box-shadow: 0 1px 4px rgba(255,255,255, 1);
     font-size: 9.5pt;
     font-weight: bold;
