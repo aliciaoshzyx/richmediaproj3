@@ -9,7 +9,7 @@ var config = {
   };
   firebase.initializeApp(config);
 
-
+ 
 var app = new Vue({
 	el: '#app', 
 	data: {
@@ -36,7 +36,7 @@ var app = new Vue({
             {first:"coonhound", second : "Coonhound"},
             {first:"corgi", second : "Corgi"},
             {first:"dachshund", second : "Dachshund"},
-            {first:"dalmation", second : "Dalmation"},
+            {first:"dalmatian", second : "Dalmatian"},
             {first:"greyhound", second : "Greyhound"},
             {first:"hound", second : "Hound"},
             {first:"husky", second : "Husky"},
@@ -68,7 +68,7 @@ var app = new Vue({
 	methods:{
 	search(){
 		//if (! this.term.trim()) return;
-		console.log(this.searchBreed.first);
+		//console.log(this.searchBreed.first);
 		let url = "https://dog.ceo/api/breed/" + this.searchBreed.first + "/images/random" + this.limit;
 		//url += this.limit;
 		fetch(url)
@@ -104,7 +104,11 @@ var app = new Vue({
 	} // end methods
     
 });
-
+/* SEARCH DOES NOT WORK
+$(document).ready(function(){
+    $("#special").select2();
+});
+*/
 /**********************
 Web Storage
 **********************/

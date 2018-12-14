@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Doggo Finder!</title>
+    <title>Doggo Finder! | Alicia Pantraz & Aiden Thinn</title>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
@@ -17,7 +17,7 @@
               <div id="searchBox">
                   <h1 class="titles">1. Search Random Doggos!</h1>
                   <p class="selections">Breed: </p>
-                <select class="specialSelect"  v-model="searchBreed">
+                <select class="specialSelect"  id="special" v-model="searchBreed">
                     <option v-for="b in breeds" v-bind:value="b">{{b.second}}</option>
                 </select>
                 <select id="lim" v-model="limit">
@@ -25,7 +25,7 @@
                     <option value="/10">10</option>
                     <option value="/15">15</option>
                 </select>
-                <button id="dogPics" type="submit" onclick="toggle_pics('#shelters');" @click="search">Fetch!</button>
+                <button id="dogPics" type="submit" @click="search">Fetch!</button>
                 <h1 class="titles">2. Adopt A Doggo!</h1>
                 <p class="selections">Sex: </p>
                 <select id="sex" v-model="sex">
@@ -42,7 +42,6 @@
                 <p class="selections">Zip Code: </p>
                 <input id="loc" type="text" v-model="location">
                 <select id="lim2" v-model="limit2">
-                    <option selected value="1">1</option>
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
@@ -68,17 +67,8 @@
               </div>
           </div>
       </div>
-      <p ><a href="https://www.petfinder.com">Powered by Petfinder.com</a></p>
+      <p><a href="https://www.petfinder.com">Powered by Petfinder.com</a></p>
   </body>
-<script type="text/javascript">
-    function toggle_pics(id){
-        let e = document.getElementById(id);
-        if(e.style.display == 'block')
-            e.style.display == 'none';
-        else
-            e.style.display = 'block';
-    }
-</script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
   <script src="index.js"></script>
